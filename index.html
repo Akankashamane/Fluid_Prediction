@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fluid Prediction</title>
+</head>
+<body>
+    <h1>Fluid Prediction using LSTM and Rainfall Data</h1>
+    <form action="/predict" method="post">
+        <label for="data">Enter rainfall data (comma-separated):</label><br><br>
+        <input type="text" id="data" name="data" required><br><br>
+        <input type="submit" value="Predict">
+    </form>
+    {% if prediction %}
+        <h2>Predicted Fluid Level: {{ prediction }}</h2>
+        <img src="data:image/png;base64,{{ plot_url }}" alt="Prediction Plot">
+    {% endif %}
+</body>
+</html>
